@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	// Use this for initialization
+	// prevent full screen
 	void Start () {
         Screen.fullScreen = false;
     }
@@ -15,11 +15,13 @@ public class MainMenu : MonoBehaviour {
 		
 	}
 
+    // play button handler
     public void PlayButton ()
     {
         SceneManager.LoadScene("Game");
     }
 
+    // quit button handler
     public void QuitButton ()
     {
         Application.Quit();

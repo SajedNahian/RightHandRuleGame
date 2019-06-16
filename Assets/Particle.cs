@@ -14,7 +14,7 @@ public class Particle : MonoBehaviour {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>();
 	}
 	
-	// Update is called once per frame
+	// Move the particle if it should be moving or stop moving if it is in the correct position
 	void Update () {
 		if (direction == "down")
         {
@@ -204,6 +204,8 @@ public class Particle : MonoBehaviour {
         }
     }
 
+
+    // set directions - allowing encapsulated access from the Manager file
     public void goDown ()
     {
         direction = "down";

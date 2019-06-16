@@ -27,7 +27,7 @@ public class Manager : MonoBehaviour {
     public Text timeText;
     private float whenToSubractLife;
     private Text scoreText;
-	// Use this for initialization
+	// Create initial state
 	void Start () {
         direction = "down";
         gameOverPanel.SetActive(false);
@@ -49,6 +49,7 @@ public class Manager : MonoBehaviour {
         print("Answer: " + answer);
     }
 
+    // setup sprites in accordance to current game state
     void setupGame() {
         if (fieldDirection == "out")
         {
@@ -68,6 +69,7 @@ public class Manager : MonoBehaviour {
         }
     }
 
+    // calculates the correct answer for the current particle, direction and magnetic field
     string calculateCorrectAnswer(string direction, string field, int charge)
     {
         string answer = "";
@@ -159,6 +161,7 @@ public class Manager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        // manages lives and timer
         if (lives > 0)
         {
             if (whenToSubractLife > Time.time)
@@ -187,6 +190,8 @@ public class Manager : MonoBehaviour {
         currentAudio++;
     }
 
+
+    // button handlers for the UI
     public void LeftButton ()
     {
         if (answer == "left")
@@ -281,6 +286,7 @@ public class Manager : MonoBehaviour {
         }
     }
 
+    // create a new field once the user finishes the current particle, field, direction combination
     public void NewField (string direction)
     {
         fieldDirection = fieldDirections[Random.Range(0, 2)];
@@ -329,11 +335,13 @@ public class Manager : MonoBehaviour {
         }
     }
 
+    // restart button handler
     public void RestartLevel ()
     {
         SceneManager.LoadScene("Game");
     }
 
+    // back button handler
     public void Back()
     {
         SceneManager.LoadScene("MainMenu");
