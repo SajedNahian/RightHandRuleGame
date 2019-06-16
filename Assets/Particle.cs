@@ -7,7 +7,7 @@ public class Particle : MonoBehaviour {
     public Transform resetLeft, resetRight, resetTop, resetBot, middle;
     public string direction = "";
     private float speed = 6f;
-    public float curveSpeed = 5.4f;
+    public float curveSpeed = 4f;
     Manager manager;
 	// Use this for initialization
 	void Start () {
